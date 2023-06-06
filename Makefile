@@ -47,7 +47,8 @@ test: generate fmt vet manifests
 
 .PHONY: image
 image: test
-	docker buildx build --platform ${IMAGE_PLATFORMS} -t ${IMAGE_PREFIX}${IMAGE_NAME}:${IMAGE_TAG} .
+    docker buildx build --platform ${IMAGE_PLATFORMS} -t ${IMAGE_PREFIX}${IMAGE_NAME}:${IMAGE_TAG} .
+	# docker buildx build --platform linux/arm64 -t quay.io/argoproj/argocd-applicationset:v0.4.0 .
 
 .PHONY: image-push
 image-push: image
